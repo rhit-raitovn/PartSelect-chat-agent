@@ -86,6 +86,8 @@ partselect-ai-agent/
 │   │   ├── test_agent.py
 │   │   ├── test_intent.py
 │   │   └── test_api.py
+|   ├── scripts/
+|   │   └──  setup_vector_db.py   # Initialize vector database
 │   ├── main.py                   # Application entry point
 │   ├── README.md
 │   ├── .env
@@ -93,12 +95,7 @@ partselect-ai-agent/
 │   └── Dockerfile
 │
 ├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── API.md
-│   └── DEPLOYMENT.md
-│
-├── scripts/
-│   └──  setup_vector_db.py       # Initialize vector database
+│   └── ARCHITECTURE.md
 │
 ├── .github/
 │   └── workflows/
