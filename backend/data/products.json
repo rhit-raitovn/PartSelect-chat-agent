@@ -1,0 +1,103 @@
+[
+  {
+    "part_number": "PS11752778",
+    "name": "Ice Maker Assembly",
+    "description": "Replacement ice maker assembly for Whirlpool, KitchenAid, and Maytag refrigerators. Complete unit includes housing, motor, and ejector blade.",
+    "price": 124.99,
+    "category": "refrigerator",
+    "image_url": "https://www.partselect.com/models/ps11752778.jpg",
+    "compatibility": ["WDT780SAEM1", "WRS325SDHZ", "WRF535SWHZ", "MFI2570FEZ"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS11752778",
+    "installation_steps": "1. Turn off refrigerator and water supply\n2. Remove ice bin and mounting screws\n3. Disconnect wiring harness\n4. Remove old ice maker\n5. Install new ice maker and reconnect wiring\n6. Secure with mounting screws\n7. Turn on water supply and power"
+  },
+  {
+    "part_number": "PS11757302",
+    "name": "Water Inlet Valve",
+    "description": "Water inlet valve controls water flow to ice maker and water dispenser. Fits Whirlpool and Kenmore refrigerators.",
+    "price": 45.99,
+    "category": "refrigerator",
+    "image_url": "https://www.partselect.com/models/ps11757302.jpg",
+    "compatibility": ["WRS325SDHZ", "106.51133110", "WRF535SWHZ"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS11757302"
+  },
+  {
+    "part_number": "PS11748956",
+    "name": "Door Gasket Seal",
+    "description": "Magnetic door gasket creates airtight seal. Prevents cold air loss. Universal fit for most refrigerator models.",
+    "price": 67.50,
+    "category": "refrigerator",
+    "image_url": "https://www.partselect.com/models/ps11748956.jpg",
+    "compatibility": ["WDT780SAEM1", "WRS325SDHZ", "WRF535SWHZ", "MFI2570FEZ", "GSS25GSHSS"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS11748956"
+  },
+  {
+    "part_number": "PS2366603",
+    "name": "Dishwasher Spray Arm",
+    "description": "Lower spray arm assembly for dishwashers. Includes spray jets and mounting hub. Ensures proper water distribution.",
+    "price": 34.99,
+    "category": "dishwasher",
+    "image_url": "https://www.partselect.com/models/ps2366603.jpg",
+    "compatibility": ["WDT780SAEM1", "KDFE104HPS", "DU1055XTSS"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS2366603"
+  },
+  {
+    "part_number": "PS3497628",
+    "name": "Dishwasher Door Latch",
+    "description": "Door latch and handle assembly. Secures dishwasher door during operation. Includes strike and catch mechanism.",
+    "price": 52.75,
+    "category": "dishwasher",
+    "image_url": "https://www.partselect.com/models/ps3497628.jpg",
+    "compatibility": ["WDT780SAEM1", "KDTM354ESS", "WDF520PADM"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS3497628"
+  },
+  {
+    "part_number": "PS11746119",
+    "name": "Dishwasher Heating Element",
+    "description": "Heating element for drying cycle. 1200W high-efficiency element. Compatible with Whirlpool and KitchenAid models.",
+    "price": 48.25,
+    "category": "dishwasher",
+    "image_url": "https://www.partselect.com/models/ps11746119.jpg",
+    "compatibility": ["WDT780SAEM1", "KDTE334GPS", "WDF540PADM"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS11746119"
+  },
+  {
+    "part_number": "PS12370072",
+    "name": "Refrigerator Water Filter",
+    "description": "Premium water filter reduces contaminants including lead, chlorine, and pharmaceuticals. 6-month filter life.",
+    "price": 39.99,
+    "category": "refrigerator",
+    "image_url": "https://www.partselect.com/models/ps12370072.jpg",
+    "compatibility": ["WRS325SDHZ", "WRF535SWHZ", "MFI2570FEZ", "GSS25GSHSS"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS12370072"
+  },
+  {
+    "part_number": "PS11755729",
+    "name": "Evaporator Fan Motor",
+    "description": "Evaporator fan motor circulates cold air throughout refrigerator. Includes fan blade and mounting bracket.",
+    "price": 89.99,
+    "category": "refrigerator",
+    "image_url": "https://www.partselect.com/models/ps11755729.jpg",
+    "compatibility": ["WRF535SWHZ", "MFI2570FEZ", "GSS25GSHSS"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS11755729"
+  },
+  {
+    "part_number": "PS8761954",
+    "name": "Dishwasher Drain Pump",
+    "description": "Drain pump removes water from dishwasher tub. High-capacity motor ensures complete drainage.",
+    "price": 76.50,
+    "category": "dishwasher",
+    "image_url": "https://www.partselect.com/models/ps8761954.jpg",
+    "compatibility": ["WDT780SAEM1", "KDFE104HPS", "WDF520PADM"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS8761954"
+  },
+  {
+    "part_number": "PS11747979",
+    "name": "Temperature Control Thermostat",
+    "description": "Electronic temperature control for refrigerator. Precise temperature regulation with digital display.",
+    "price": 95.00,
+    "category": "refrigerator",
+    "image_url": "https://www.partselect.com/models/ps11747979.jpg",
+    "compatibility": ["WRS325SDHZ", "WRF535SWHZ", "MFI2570FEZ"],
+    "installation_guide_url": "https://www.partselect.com/installation/PS11747979"
+  }
+]

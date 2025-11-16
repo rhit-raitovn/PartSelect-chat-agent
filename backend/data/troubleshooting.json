@@ -1,0 +1,82 @@
+[
+  {
+    "problem": "Ice maker not working or not producing ice",
+    "brand": "Whirlpool",
+    "appliance": "refrigerator",
+    "solution": "1. Check water supply line is connected and valve is open\n2. Verify ice maker is turned on (arm should be down)\n3. Check water inlet valve for clogs or damage (Part PS11757302)\n4. Inspect ice maker assembly for mechanical failure (Part PS11752778)\n5. Ensure freezer temperature is 0-5°F\n6. Wait 24 hours after installation for first ice production",
+    "common_parts": ["PS11752778", "PS11757302"],
+    "difficulty": "moderate"
+  },
+  {
+    "problem": "Refrigerator not cooling or too warm",
+    "brand": "General",
+    "appliance": "refrigerator",
+    "solution": "1. Check temperature settings (should be 37-40°F for fridge, 0-5°F for freezer)\n2. Ensure door seals properly - replace gasket if damaged (Part PS11748956)\n3. Clean condenser coils (located at back or bottom)\n4. Check evaporator fan motor is running (Part PS11755729)\n5. Verify air vents are not blocked\n6. Test temperature control thermostat (Part PS11747979)",
+    "common_parts": ["PS11748956", "PS11755729", "PS11747979"],
+    "difficulty": "moderate"
+  },
+  {
+    "problem": "Water leaking from refrigerator",
+    "brand": "General",
+    "appliance": "refrigerator",
+    "solution": "1. Check door gasket for tears or gaps (Part PS11748956)\n2. Inspect water inlet valve for leaks (Part PS11757302)\n3. Clear drain tube if frozen or clogged\n4. Level refrigerator properly\n5. Check water filter housing for cracks\n6. Inspect ice maker for leaks",
+    "common_parts": ["PS11748956", "PS11757302", "PS12370072"],
+    "difficulty": "easy"
+  },
+  {
+    "problem": "Dishwasher not cleaning dishes properly",
+    "brand": "General",
+    "appliance": "dishwasher",
+    "solution": "1. Check spray arms rotate freely and jets are not clogged (Part PS2366603)\n2. Verify water temperature reaches 120°F\n3. Use proper detergent amount and fresh detergent\n4. Load dishes properly - don't overcrowd\n5. Clean filter regularly\n6. Check water inlet valve for adequate flow",
+    "common_parts": ["PS2366603"],
+    "difficulty": "easy"
+  },
+  {
+    "problem": "Dishwasher not draining water",
+    "brand": "General",
+    "appliance": "dishwasher",
+    "solution": "1. Check drain hose for kinks or clogs\n2. Clean filter and drain area\n3. Verify garbage disposal knockout plug is removed\n4. Test drain pump operation (Part PS8761954)\n5. Check drain valve for obstructions\n6. Ensure drain hose is installed correctly",
+    "common_parts": ["PS8761954"],
+    "difficulty": "moderate"
+  },
+  {
+    "problem": "Dishwasher door won't close or latch",
+    "brand": "General",
+    "appliance": "dishwasher",
+    "solution": "1. Check door latch assembly for damage (Part PS3497628)\n2. Inspect door spring for proper tension\n3. Verify dishwasher is level\n4. Check for obstructions preventing door closure\n5. Examine door seal for damage\n6. Adjust strike plate if misaligned",
+    "common_parts": ["PS3497628"],
+    "difficulty": "easy"
+  },
+  {
+    "problem": "Dishwasher not drying dishes",
+    "brand": "General",
+    "appliance": "dishwasher",
+    "solution": "1. Verify heating element works (Part PS11746119)\n2. Use rinse aid to improve drying\n3. Select heated dry option if available\n4. Allow proper cool-down time before opening door\n5. Check vent operation\n6. Ensure dishes are loaded to allow air circulation",
+    "common_parts": ["PS11746119"],
+    "difficulty": "moderate"
+  },
+  {
+    "problem": "Strange noises from refrigerator",
+    "brand": "General",
+    "appliance": "refrigerator",
+    "solution": "1. Level refrigerator to reduce vibration\n2. Check evaporator fan motor for wear (Part PS11755729)\n3. Inspect ice maker operation (Part PS11752778)\n4. Verify compressor mounts are secure\n5. Clear items from top of refrigerator\n6. Check water line for vibration against wall",
+    "common_parts": ["PS11755729", "PS11752778"],
+    "difficulty": "moderate"
+  },
+  {
+    "problem": "Water dispenser not working",
+    "brand": "Whirlpool",
+    "appliance": "refrigerator",
+    "solution": "1. Check water supply is connected and turned on\n2. Replace water filter if clogged (Part PS12370072)\n3. Test water inlet valve (Part PS11757302)\n4. Verify dispenser switch operation\n5. Check for frozen water line in door\n6. Ensure control lock is not activated",
+    "common_parts": ["PS12370072", "PS11757302"],
+    "difficulty": "easy"
+  },
+  {
+    "problem": "Dishwasher won't start or has no power",
+    "brand": "General",
+    "appliance": "dishwasher",
+    "solution": "1. Check circuit breaker and reset if tripped\n2. Verify door closes and latches properly (Part PS3497628)\n3. Test door switch operation\n4. Check for blown fuse or tripped GFCI\n5. Inspect control panel for error codes\n6. Ensure delay start is not activated",
+    "common_parts": ["PS3497628"],
+    "difficulty": "easy"
+  }
+]
