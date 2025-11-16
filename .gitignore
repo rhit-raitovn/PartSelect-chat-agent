@@ -12,3 +12,10 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+
+backend/venv/
+venv/
+__pycache__/
+*.pyc
+node_modules/
+.env
