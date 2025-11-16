@@ -96,35 +96,6 @@ pytest tests/test_agent.py
 pytest tests/test_tools.py
 ```
 
-### Run Specific Test Classes or Functions
-
-```bash
-# Run specific test class
-pytest tests/test_intent.py::TestIntentClassifier
-
-# Run specific test function
-pytest tests/test_intent.py::TestIntentClassifier::test_classify_installation_pattern
-
-# Run tests matching a pattern
-pytest -k "installation"
-```
-
-### Run Tests by Markers
-
-```bash
-# Run only async tests
-pytest -m asyncio
-
-# Run only integration tests
-pytest -m integration
-
-# Run only unit tests
-pytest -m unit
-
-# Skip slow tests
-pytest -m "not slow"
-```
-
 ### Coverage Reports
 
 ```bash

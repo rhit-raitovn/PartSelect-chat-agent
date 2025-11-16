@@ -12,8 +12,8 @@ This package contains my complete submission for the Instalily PartSelect AI Age
 
 **Location:** `partselect-ai-agent/` folder
 
-- **Backend:** FastAPI + DeepSeek LLM (15 Python files)
-- **Frontend:** React chat interface (3 JS files)
+- **Backend:** FastAPI + DeepSeek LLM
+- **Frontend:** React chat interface
 - **Infrastructure:** Docker, setup scripts, configuration
 - **Data:** Sample products and troubleshooting guides
 - **Total:** 3,500+ lines of production code
@@ -21,17 +21,9 @@ This package contains my complete submission for the Instalily PartSelect AI Age
 
 ### 2. Comprehensive Documentation (10,000+ words)
 
-**Quick Start:**
-- `START_HERE.md` - Entry point overview
-- `QUICKSTART.md` - 5-minute setup guide
-- `INDEX.md` - Complete documentation index
-
 **Technical Documentation:**
 - `README.md` - Main documentation
-- `docs/ARCHITECTURE.md` - Technical deep dive
-- `PROJECT_STRUCTURE.md` - Code organization
-- `DIAGRAMS.md` - Visual architecture
-- `EXECUTION_SUMMARY.md` - Success criteria coverage
+- `docs/ARCHITECTURE.md` - Technical deep dive + Code organization + Visual architecture
 
 ---
 
@@ -46,7 +38,7 @@ cd partselect-ai-agent
 # 2. Run automated setup
 .\setup.ps1
 
-# 3. Add your DeepSeek API key when prompted
+# 3. Add your DEEPSEEK_API_KEY or OPENROUTER_API_KEY
 
 # 4. Start the application
 .\start-all.ps1
