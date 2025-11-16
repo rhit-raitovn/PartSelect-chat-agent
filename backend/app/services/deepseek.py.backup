@@ -1,0 +1,117 @@
+"""
+DeepSeek LLM Integration Service
+"""
+import os
+from typing import List, Dict, Any
+from openai import OpenAI
+
+
+class DeepSeekService:
+    """Service for interacting with DeepSeek LLM"""
+    
+    def __init__(self):
+        self.api_key = os.getenv("DEEPSEEK_API_KEY", "")
+        self.base_url = "https://api.deepseek.com"
+        
+        if not self.api_key:
+            raise ValueError("DEEPSEEK_API_KEY environment variable is required")
+        
+        try:
+            self.client = OpenAI(
+                api_key=self.api_key,
+                base_url=self.base_url
+            )
+            self.model = "deepseek-chat"
+        except Exception as e:
+            print(f"Warning: Failed to initialize OpenAI client: {e}")
+            # Create client anyway, will fail at first use with helpful error
+            self.client = OpenAI(
+                api_key=self.api_key,
+                base_url=self.base_url
+            )
+            self.model = "deepseek-chat"
+    
+    async def chat_completion(
+        self,
+        messages: List[Dict[str, str]],
+        temperature: float = 0.7,
+        max_tokens: int = 1000,
+        tools: List[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """
+        Generate a chat completion using DeepSeek
+        
+        Args:
+            messages: List of message dictionaries
+            temperature: Sampling temperature
+            max_tokens: Maximum tokens to generate
+            tools: Optional tool definitions for function calling
+            
+        Returns:
+            Response dictionary from DeepSeek
+        """
+        try:
+            params = {
+                "model": self.model,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+                "stream": False
+            }
+            
+            if tools:
+                params["tools"] = tools
+                params["tool_choice"] = "auto"
+            
+            response = self.client.chat.completions.create(**params)
+            
+            return {
+                "content": response.choices[0].message.content,
+                "tool_calls": getattr(response.choices[0].message, 'tool_calls', None),
+                "finish_reason": response.choices[0].finish_reason,
+                "usage": {
+                    "prompt_tokens": response.usage.prompt_tokens,
+                    "completion_tokens": response.usage.completion_tokens,
+                    "total_tokens": response.usage.total_tokens
+                }
+            }
+        except Exception as e:
+            error_msg = str(e)
+            print(f"DeepSeek API error: {error_msg}")
+            
+            # Provide more helpful error messages
+            if "api_key" in error_msg.lower() or "unauthorized" in error_msg.lower():
+                raise Exception(f"DeepSeek API authentication failed. Please check your API key is valid and has credits. Error: {error_msg}")
+            elif "rate_limit" in error_msg.lower():
+                raise Exception(f"DeepSeek API rate limit exceeded. Please wait a moment and try again. Error: {error_msg}")
+            elif "timeout" in error_msg.lower():
+                raise Exception(f"DeepSeek API timeout. Please try again. Error: {error_msg}")
+            else:
+                raise Exception(f"DeepSeek API error: {error_msg}")
+    
+    async def generate_embedding(self, text: str) -> List[float]:
+        """
+        Generate embeddings for text (Note: DeepSeek may not have embedding endpoint,
+        fallback to OpenAI or local embeddings if needed)
+        
+        Args:
+            text: Text to embed
+            
+        Returns:
+            Embedding vector
+        """
+        # This is a placeholder - implement based on available embedding service
+        # You might use sentence-transformers locally or OpenAI embeddings
+        raise NotImplementedError("Embedding service needs to be configured")
+
+
+# Singleton instance
+_deepseek_service = None
+
+
+def get_deepseek_service() -> DeepSeekService:
+    """Get or create DeepSeek service instance"""
+    global _deepseek_service
+    if _deepseek_service is None:
+        _deepseek_service = DeepSeekService()
+    return _deepseek_service
