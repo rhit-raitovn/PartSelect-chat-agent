@@ -1,128 +1,59 @@
-"""
-API Routes
-"""
-from fastapi import FastAPI, HTTPException, Request
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from app.models.schemas import ChatRequest, ChatResponse
-from app.agent.core import get_agent
-from datetime import datetime
-import traceback
+# backend/app/api/routes.py
+# Updated chat endpoint to return suggested actions
 
-# Create FastAPI app
-app = FastAPI(
-    title="PartSelect AI Agent API",
-    description="AI-powered customer service agent for refrigerator and dishwasher parts",
-    version="1.0.0"
-)
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+from typing import List, Dict, Any, Optional
+import json
+import os
 
-# Configure CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # In production, specify actual origins
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+from app.agent.core import PartSelectAgent, format_agent_response
 
+router = APIRouter()
 
-@app.get("/")
-async def root():
-    """Health check endpoint"""
-    return {
-        "status": "online",
-        "service": "PartSelect AI Agent",
-        "version": "1.0.0",
-        "timestamp": datetime.now().isoformat()
-    }
+# Load products and initialize agent
+def load_products():
+    products_file = os.path.join(os.path.dirname(__file__), '../../data/products.json')
+    with open(products_file, 'r') as f:
+        return json.load(f)
 
+products_data = load_products()
+agent = PartSelectAgent(products_data)
 
-@app.get("/health")
-async def health_check():
-    """Detailed health check"""
-    return {
-        "status": "healthy",
-        "timestamp": datetime.now().isoformat(),
-        "components": {
-            "api": "operational",
-            "agent": "operational",
-            "vector_db": "operational"
-        }
-    }
+class ChatRequest(BaseModel):
+    message: str
+    user_id: str = "anonymous"
 
+class ChatResponse(BaseModel):
+    response: str
+    intent: Optional[str] = None
+    response_type: Optional[str] = None
+    suggested_actions: Optional[List[str]] = []  # ← Add this field
 
-@app.post("/api/chat", response_model=ChatResponse)
+@router.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     """
-    Main chat endpoint
-    
-    Process user message and return agent response
+    Main chat endpoint that processes user messages
     """
     try:
-        agent = get_agent()
+        # Process message through agent
+        agent_response = agent.process_message(request.message)
         
-        # Process message
-        response = await agent.process_message(
-            message=request.message,
-            conversation_id=request.conversation_id,
-            user_context=request.user_context
-        )
+        # Format response
+        formatted_response = format_agent_response(agent_response)
         
+        # Return with suggested actions
         return ChatResponse(
-            response=response,
-            success=True
+            response=formatted_response,
+            intent=agent_response.get("intent"),
+            response_type=agent_response.get("response_type"),
+            suggested_actions=agent_response.get("suggested_actions", [])  # ← Include suggested actions
         )
     
     except Exception as e:
-        # Log error
-        print(f"Error processing chat: {str(e)}")
-        print(traceback.format_exc())
-        
-        return ChatResponse(
-            response=None,
-            success=False,
-            error=f"An error occurred processing your request: {str(e)}"
-        )
-
-
-@app.post("/api/conversation/clear")
-async def clear_conversation(conversation_id: str):
-    """Clear conversation history"""
-    try:
-        agent = get_agent()
-        agent.clear_conversation(conversation_id)
-        return {"success": True, "message": "Conversation cleared"}
-    except Exception as e:
+        print(f"❌ Error processing message: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
-
-@app.get("/api/conversation/{conversation_id}")
-async def get_conversation(conversation_id: str):
-    """Get conversation history"""
-    try:
-        agent = get_agent()
-        history = agent.get_conversation_history(conversation_id)
-        return {
-            "conversation_id": conversation_id,
-            "messages": [msg.dict() for msg in history]
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.exception_handler(Exception)
-async def global_exception_handler(request: Request, exc: Exception):
-    """Global exception handler"""
-    return JSONResponse(
-        status_code=500,
-        content={
-            "success": False,
-            "error": "Internal server error",
-            "detail": str(exc)
-        }
-    )
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@router.get("/health")
+async def health():
+    return {"status": "healthy", "products": len(agent.products)}

@@ -4,29 +4,49 @@ PartSelect AI Agent - Main Application Entry Point
 import os
 from dotenv import load_dotenv
 import uvicorn
-from app.api.routes import app
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.api.routes import router
 
 # Load environment variables from .env file
 load_dotenv()
 KEY = 'OPENROUTER_API_KEY'
 
-# Verify API key is loaded
-if not os.getenv(KEY):
-    print("=" * 60)
-    print(f"ERROR: {KEY} not found!")
-    print("=" * 60)
-    exit(1)
+# Create FastAPI application
+app = FastAPI(
+    title="PartSelect AI Agent API",
+    description="AI-powered assistant for appliance parts",
+    version="1.0.0"
+)
 
-print("=" * 60)
-print("✓ Environment variables loaded successfully")
-print("✓ DeepSeek API key found")
-print("=" * 60)
+# Configure CORS for frontend access
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://localhost:3001", "*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include API routes with /api prefix
+app.include_router(router, prefix="/api", tags=["chat"])
+
+# Root endpoint
+@app.get("/")
+async def root():
+    return {
+        "message": "PartSelect AI Agent API",
+        "status": "running",
+        "docs_url": "/docs",
+        "chat_endpoint": "/api/chat"
+    }
+
+# Health check endpoint
+@app.get("/health")
+async def health():
+    return {"status": "healthy"}
 
 if __name__ == "__main__":
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,
-        log_level="info"
-    )
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
