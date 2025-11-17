@@ -18,7 +18,7 @@ This package contains my complete submission for the Instalily PartSelect AI Age
 - **Data:** Sample products and troubleshooting guides
 
 
-### 2. Comprehensive Documentation (10,000+ words)
+### 2. Documentation 
 
 **Technical Documentation:**
 - `README.md` - Main documentation
@@ -49,9 +49,9 @@ cd partselect-ai-agent
 
 Once running, try these:
 
-1. **Installation:** "How can I install part number PS11752778?"
-2. **Compatibility:** "Is this part compatible with my WDT780SAEM1 model?"
-3. **Troubleshooting:** "The ice maker on my Whirlpool fridge is not working"
+1. "How can I install part number PS11752778?"
+2. "Is this part compatible with my WDT780SAEM1 model?"
+3. "The ice maker on my Whirlpool fridge is not working"
 4. **Out of Scope:** "Can you help with my washing machine?"
 
 ---
