@@ -4,9 +4,8 @@
 
 ---
 
-## Submission Contents
-
-This package contains my complete submission for the Instalily PartSelect AI Agent case study.
+## Presentation
+https://docs.google.com/presentation/d/1-YNhvWx7w5N1cOra2-lBCzmH4X9imUSGFXzmfd5HBew/edit?slide=id.g3a4420436e5_0_1401#slide=id.g3a4420436e5_0_1401
 
 ### 1. Source Code (Complete & Production-Ready)
 
