@@ -1,6 +1,4 @@
-# Instalily Case Study Submission
-
-**Naziia Raitova's Submission for PartSelect AI Agent**
+**Naziia Raitova's PartSelect AI Agent**
 
 ---
 
